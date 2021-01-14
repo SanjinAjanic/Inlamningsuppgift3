@@ -114,10 +114,28 @@ namespace Inlamningsuppgift3
                
                 int damageMonster = randomDamageMonster.Next(7, 14);
                 int damagePlayer = randomDamagePlayer.Next(7, 14);
+                if (monsterList[rnumb].Name =="Bmw")
+                {
+                    Console.WriteLine($"Uh oh! A {monsterList[rnumb].Name} appeard!\n" +
+                     $"You hit the monster, dealing {damageMonster} damage\n" +
+                     $"UUuoooaah *slurp*\n" +
+                     $"Bmw körde över dig!!, dealing {damagePlayer} damage ");
+                }
+                else if (monsterList[rnumb].Name =="Fisken")
+                {
                 Console.WriteLine($"Uh oh! A {monsterList[rnumb].Name} appeard!\n" +
                     $"You hit the monster, dealing {damageMonster} damage\n" +
                     $"UUuoooaah *slurp*\n" +
-                    $"The monster hit you, dealing {damagePlayer} damage ");
+                    $"The Fish slap  you, dealing {damagePlayer} damage ");
+
+                }
+                else
+                {
+                    Console.WriteLine($"Uh oh! A {monsterList[rnumb].Name} appeard!\n" +
+                   $"You hit the monster, dealing {damageMonster} damage\n" +
+                   $"UUuoooaah *slurp*\n" +
+                   $"The monster hit you, dealing {damagePlayer} damage ");
+                }
                 player.Hp -= damagePlayer;
                 Tupac.Hp -= damageMonster;
                 Console.WriteLine($"{player.Name}: {player.Hp} hp\n" +
