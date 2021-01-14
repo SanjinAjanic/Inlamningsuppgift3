@@ -10,18 +10,18 @@ namespace Inlamningsuppgift3
 
             Console.Title = "Sanjins Inlämningsuppgift3";
 
-            
+
             Console.WriteLine("**********************");
             Console.WriteLine("* Welcome to the game*");
             Console.WriteLine("**********************");
 
-            
+
             Console.Write("Enter your name: ");
-            string namn = Console.ReadLine();  
-            Player player  = new Player(namn);
+            string namn = Console.ReadLine();
+            Player player = new Player(namn);
 
             Meny(player);
-               
+
 
         }
         private static void Meny(Player player)
@@ -32,9 +32,9 @@ namespace Inlamningsuppgift3
 
             do
             {
-               
 
-               
+
+
                 Console.Clear();
                 Console.WriteLine("1. Go adventuring");
                 Console.WriteLine("2. Show details about your character");
@@ -68,26 +68,27 @@ namespace Inlamningsuppgift3
             }
             else
             {
-                Fights(rnumb);
+                Fights(rnumb, player);
+
             }
 
         }
-        private static List<Monster> NewMonsters()
+        private static List<SpecifiktMonster> NewMonsters()
         {
             ///Skapat Monster och tilldelat dom med namn, level,hp
-            Monster Kimbo = new Monster("Kimbo", 1, 30);
-            Monster Drago = new Monster("Drago", 3, 60);
-            Monster Sardin = new Monster("Sardin", 5, 80);
-            Monster Bmw = new Monster("Bmw", 7, 100);
-            Monster Muharem = new Monster("Muharem", 10, 120);
-            Monster Fisken = new Monster("Fisken", 15, 150);
-            Monster Fisken2 = new Monster("Fisken", 15, 150);
-            Monster Fisken3 = new Monster("Fisken", 15, 150);
-            Monster Fisken4 = new Monster("Fisken", 15, 150);
+            SpecifiktMonster Kimbo = new SpecifiktMonster( 30, 100, "Kimbo");
+            SpecifiktMonster Drago = new SpecifiktMonster( 60, 150, "Drago");
+            SpecifiktMonster Sardin = new SpecifiktMonster( 80, 200,  "Sardin");
+            SpecifiktMonster Bmw = new SpecifiktMonster( 100, 500, "Bmw");
+            SpecifiktMonster Muharem = new SpecifiktMonster( 120, 130, "Muharem");
+            SpecifiktMonster Fisken = new SpecifiktMonster(150, 10, "Fisken");
+            SpecifiktMonster Fisken2 = new SpecifiktMonster(150, 10, "Fisken");
+            SpecifiktMonster Fisken3 = new SpecifiktMonster(150, 10, "Fisken");
+            SpecifiktMonster Fisken4 = new SpecifiktMonster(150, 10, "Fisken");
 
 
             //Skapat en Lista till Monster
-            List<Monster> NewMonsters = new List<Monster>();
+            List<SpecifiktMonster> NewMonsters = new List<SpecifiktMonster>();
             //Lagt in alla Monster i listan
             NewMonsters.Add(Fisken);
             NewMonsters.Add(Muharem);
@@ -101,11 +102,30 @@ namespace Inlamningsuppgift3
 
             return NewMonsters;
         }
-        private static void Fights(int rnumb)
+        private static void Fights(int rnumb, Player player)
         {
-            Console.WriteLine("Fight");
-            List<Monster> monsterList = NewMonsters();
-            Console.WriteLine(monsterList[rnumb].Name);
+                List<SpecifiktMonster> monsterList = NewMonsters();
+            SpecifiktMonster Tupac = new SpecifiktMonster(monsterList[rnumb].Hp,monsterList[rnumb].Exp,monsterList[rnumb].Name);
+
+            Random randomDamageMonster = new Random();
+            Random randomDamagePlayer = new Random();
+            do
+            {
+               
+                int damageMonster = randomDamageMonster.Next(7, 14);
+                int damagePlayer = randomDamagePlayer.Next(7, 14);
+                Console.WriteLine($"Uh oh! A {monsterList[rnumb].Name} appeard!\n" +
+                    $"You hit the monster, dealing {damageMonster} damage\n" +
+                    $"UUuoooaah *slurp*\n" +
+                    $"The monster hit you, dealing {damagePlayer} damage ");
+                player.Hp -= damagePlayer;
+                Tupac.Hp -= damageMonster;
+                Console.WriteLine($"{player.Name}: {player.Hp} hp\n" +
+                    $"{Tupac.Name}: {Tupac.Hp} hp\n" +
+                    $"[Press enter to continue]");
+                Console.ReadLine();
+                     
+            } while (Tupac.Hp >0);
         }
     }
 }
