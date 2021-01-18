@@ -6,6 +6,7 @@ namespace Inlamningsuppgift3
 {
     class Player
     {
+        static int[] expLimits = new int[] { 0, 200, 300, 400, 500, 600, 700, 800, 900, 1000 };
         private string name;
         private int level = 1;
         private int exp = 0;
@@ -14,6 +15,7 @@ namespace Inlamningsuppgift3
         public Player(string name)
         {
             this.name = name;
+            MaxExp = expLimits[Level];
            
         }
 
@@ -64,6 +66,17 @@ namespace Inlamningsuppgift3
                 hp = value;
             }
         }
+
+        public int MaxExp { get; set; }
+
+        public void LevelUp()
+        {
+            Exp -= MaxExp;
+            Level++;
+            MaxExp = expLimits[Level];
+        }
+
+        
 
 
 
