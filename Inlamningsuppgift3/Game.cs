@@ -9,7 +9,7 @@ namespace Inlamningsuppgift3
         public void Start()
         {
             Console.Title = "Sanjins Inlämningsuppgift3";
-
+            
 
             Console.WriteLine("**********************");
             Console.WriteLine("* Welcome to the game*");
