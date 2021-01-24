@@ -95,16 +95,16 @@ namespace Inlamningsuppgift3
         {
             List<SpecifiktMonster> monsters = new List<SpecifiktMonster>()
             {
-                new SpecifiktMonster(150, 10, "Fisken"),
+                new SpecifiktMonster(150, 100, "Fisken"),
                 new SpecifiktMonster( 120, 130, "Muharem"),
-                new SpecifiktMonster(150, 10, "Fisken"),
+                new SpecifiktMonster(150, 100, "Fisken"),
                 new SpecifiktMonster( 100, 500, "Bmw"),
-                new SpecifiktMonster(150, 10, "Fisken"),
+                new SpecifiktMonster(150, 100, "Fisken"),
                 new SpecifiktMonster( 80, 200,  "Sardin"),
-                new SpecifiktMonster(150, 10, "Fisken"),
+                new SpecifiktMonster(150, 100, "Fisken"),
                 new SpecifiktMonster(60, 150, "Drago"),
-                new SpecifiktMonster(150, 10, "Fisken"),
-                new SpecifiktMonster( 30, 100, "Kimbo")
+                new SpecifiktMonster(150, 100, "Fisken"),
+                new SpecifiktMonster( 30, 170, "Kimbo")
             };
 
             return monsters;
@@ -121,7 +121,7 @@ namespace Inlamningsuppgift3
             {
 
                 int damageToMonster = randomDamageMonster.Next(50, 100);
-                int damageToPlayer = randomDamagePlayer.Next(7, 14);
+                int damageToPlayer = randomDamagePlayer.Next(7, 12);
                 if (monsterList[rnumb].Name == "Bmw")
                 {
                     Console.WriteLine($"Uh oh! A {monsterList[rnumb].Name} appeard!\n" +

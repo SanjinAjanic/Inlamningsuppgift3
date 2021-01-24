@@ -10,13 +10,13 @@ namespace Inlamningsuppgift3
         private string name;
         private int level = 1;
         private int exp = 0;
-        private int hp = 100;
+        private int hp = 200;
 
         public Player(string name)
         {
             this.name = name;
             MaxExp = expLimits[Level];
-            MaxHp = 100;
+            MaxHp = 200;
         }
 
         public string Name
