@@ -16,7 +16,7 @@ namespace Inlamningsuppgift3
         {
             this.name = name;
             MaxExp = expLimits[Level];
-           
+            MaxHp = 100;
         }
 
         public string Name
@@ -66,6 +66,11 @@ namespace Inlamningsuppgift3
                 hp = value;
             }
         }
+        public int MaxHp { get; set; }
+
+        
+           
+        
 
         public int MaxExp { get; set; }
 
@@ -73,7 +78,14 @@ namespace Inlamningsuppgift3
         {
             Exp -= MaxExp;
             Level++;
+            if(Level == 10)
+            {
+                Console.WriteLine("Congratulations! You Won The Game!");
+                Console.ReadLine();
+                Environment.Exit(0);
+            }
             MaxExp = expLimits[Level];
+            Hp = MaxHp;
         }
 
         

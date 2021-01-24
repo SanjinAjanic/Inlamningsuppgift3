@@ -67,7 +67,7 @@ namespace Inlamningsuppgift3
             Console.WriteLine("********************");
             Console.WriteLine($"* Name: {player.Name}");
             Console.WriteLine($"* Level: {player.Level}");
-            Console.WriteLine($"* HP: {player.Hp}");
+            Console.WriteLine($"* HP: {player.Hp}/{player.MaxHp}");
             Console.WriteLine($"* Exp: {player.Exp}/{player.MaxExp}");
             Console.WriteLine("********************");
             Console.ReadKey(true);
